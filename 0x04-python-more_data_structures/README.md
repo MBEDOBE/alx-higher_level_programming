@@ -66,7 +66,7 @@ What you should learn from this project:
 * Write a function that returns a key with the biggest integer value.
 
 
-### [11. Multiply by using map](./11-mutiply_list_map.py)
+### [11. Multiply by using map](./11-multiply_list_map.py)
 * Write a function that returns a list with all values multiplied by a number without using any loops.
 * this is not working as expected
 
