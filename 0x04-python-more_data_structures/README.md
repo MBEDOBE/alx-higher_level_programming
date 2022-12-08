@@ -68,7 +68,6 @@ What you should learn from this project:
 
 ### [11. Multiply by using map](./11-multiply_list_map.py)
 * Write a function that returns a list with all values multiplied by a number without using any loops.
-* this is not working as expected
 
 
 ### [12. Roman to Integer](./12-roman_to_int.py)
