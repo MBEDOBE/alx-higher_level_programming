@@ -17,8 +17,9 @@ ALX's curriculum for high-level programming. These projects are meant to help us
 
 ### [0x04. Python - More Data Structures: Set, Dictionary](./0x04-python-more_data_structures)
 
-### [0x05. Python - More Data Structures: Set, Dictionary](./0x04-python-more_data_structures)
+### [0x05. Python - Exceptions](./0x05-python-exceptions)
 
+### [0x06. Python - Classes and Objects](./0x06-python-classes)
 ---
 
 ## Author
