@@ -1,9 +1,25 @@
 #!/usr/bin/python3
-"""class_to_json
+"""
+This module creates a class
+student with defined attributes
 """
 
-def class_to_json(obj):
-    """Returns the dictionary description for JSON
-    """
 
-    return obj.
+class Student:
+    """
+    This class is defining the attributes for
+    the said class
+    """
+    def __init__(self, first_name, last_name, age):
+        """
+        This is the instantiation of the attributes
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self):
+        """
+        returns dictionary rep of all instances
+        """
+        return (self.__dict__)
