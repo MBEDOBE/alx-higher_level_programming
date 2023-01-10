@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""append_write
+import json
+"""
+This file contains a function that
+returns an object represented by a
+JSON string
 """
 
 
-def append_write(filename="", text=""):
-    """Takes in str filename to write to, and str text to append to file
+def from_json_string(my_str):
     """
-
-    with open(filename, mode="a", encoding="utf-8") as appendFile:
-        appendFile.write(text)
-        return len(text)
+    function to return object
+    represented by a JSON string
+    """
+    return (json.loads(my_str))
