@@ -1,15 +1,11 @@
 #!/usr/bin/python3
+"""from_json_string
+"""
 import json
-"""
-This file contains a function that
-returns an object represented by a
-JSON string
-"""
 
 
 def from_json_string(my_str):
+    """Returns a python object represented by a JSON string
     """
-    function to return object
-    represented by a JSON string
-    """
-    return (json.loads(my_str))
+
+    return json.loads(my_str)
