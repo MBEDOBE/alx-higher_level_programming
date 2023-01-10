@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""write_file
+import json
+"""
+This file contains a function
+that returns the JSON representation
+of an object
 """
 
 
-def write_file(filename="", text=""):
-    """Takes str filename to read, and str text to write to
+def to_json_string(my_obj):
     """
-
-    with open(filename, mode="w", encoding="utf-8") as writeFile:
-        writeFile.write(text)
-        return len(text)
+    function to return JSON
+    representation
+    """
+    return (json.dumps(my_obj))
