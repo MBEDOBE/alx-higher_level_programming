@@ -1,25 +1,28 @@
 #!/usr/bin/python3
-"""
-This module creates a class
-student with defined attributes
+"""Student
 """
 
 
 class Student:
+    """Contains student data
     """
-    This class is defining the attributes for
-    the said class
-    """
+
     def __init__(self, first_name, last_name, age):
-        """
-        This is the instantiation of the attributes
-        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
+        """Retrieves dictionary of Student with conditions to filter
         """
-        returns dictionary rep of all instances
-        """
-        return (self.__dict__)
+
+        if attrs == None or type(attrs) != list:
+            return self.__dict__
+        else:
+            temp = {}
+            for elem in attrs:
+                if type(elem) != str:
+                    return self.__dict__
+                if elem in self.__dict__.keys():
+                    temp[elem] = self.__dict__[elem]
+            return temp
