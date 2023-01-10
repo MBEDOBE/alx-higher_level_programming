@@ -1,28 +1,21 @@
 #!/usr/bin/python3
-"""Student
+"""
+This file defines a function
+that creates a pascals triangle
 """
 
 
-class Student:
-    """Contains student data
+def pascal_triangle(n):
     """
-
-    def __init__(self, first_name, last_name, age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def to_json(self, attrs=None):
-        """Retrieves dictionary of Student with conditions to filter
-        """
-
-        if attrs == None or type(attrs) != list:
-            return self.__dict__
-        else:
-            temp = {}
-            for elem in attrs:
-                if type(elem) != str:
-                    return self.__dict__
-                if elem in self.__dict__.keys():
-                    temp[elem] = self.__dict__[elem]
-            return temp
+    function defining the logic to
+    create pascal's triangle
+    """
+    if n <= 0:
+        return ([])
+    if n == 1:
+        return [[1]]
+    pascal = [[1]]
+    for i in range(n - 1):
+        pascal.append([x + n for x, n in zip(pascal[-1] + [0],
+                                             [0] + pascal[-1])])
+    return (pascal)
