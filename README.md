@@ -28,6 +28,8 @@ ALX's curriculum for high-level programming. These projects are meant to help us
 ### [0x09. Python - Everything is object](./0x09-python-everything_is_object)
 
 ### [0x0A. Python - Inheritance](./0x0A-python-inheritance)
+
+### [0x0D. SQL - Introduction](./0x0D. sql - introduction)
 ---
 
 ## Author
