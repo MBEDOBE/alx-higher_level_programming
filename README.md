@@ -30,6 +30,8 @@ ALX's curriculum for high-level programming. These projects are meant to help us
 ### [0x0A. Python - Inheritance](./0x0A-python-inheritance)
 
 ### [0x0D. SQL - Introduction](./0x0D-SQL_introduction)
+
+### [0x0E. SQL - More queries](./0x0E-SQL_more_queries)
 ---
 
 ## Author
