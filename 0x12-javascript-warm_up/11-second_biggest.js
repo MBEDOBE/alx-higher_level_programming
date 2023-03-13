@@ -1,6 +1,17 @@
 #!/usr/bin/node
-if (process.argv.length < 4) {
-  console.log(0);
+// JS Script
+
+function sortNumber (a, b) {
+  return a - b;
+}
+let argsLen = process.argv.length;
+if (argsLen === 2 || argsLen === 3) {
+  console.log('0');
 } else {
-  console.log(process.argv.splice(2, process.argv.length - 1).sort().reverse()[1]);
+  let arr = [];
+  for (let i = 2; i < argsLen; i++) {
+    arr.push(process.argv[i]);
+  }
+  arr.sort(sortNumber);
+  console.log(arr[arr.length - 2]);
 }
