@@ -32,6 +32,10 @@ ALX's curriculum for high-level programming. These projects are meant to help us
 ### [0x0D. SQL - Introduction](./0x0D-SQL_introduction)
 
 ### [0x0E. SQL - More queries](./0x0E-SQL_more_queries)
+
+### [0x12. JavaScript - Warm up](./0x12-javascript-warm_up)
+
+### [0x13. JavaScript - Objects, Scope and Closures](./0x13-javascript_objects_scopes_closures)
 ---
 
 ## Author
