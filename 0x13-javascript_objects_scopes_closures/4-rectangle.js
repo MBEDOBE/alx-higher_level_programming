@@ -1,5 +1,5 @@
 #!/usr/bin/node
-
+// JS Script
 module.exports = class Rectangle {
   constructor (w, h) {
     if (w > 0 && h > 0) {
@@ -7,20 +7,19 @@ module.exports = class Rectangle {
       this.height = h;
     }
   }
+
   print () {
-    let i = 0;
-    for (i = 0; i < this.height; i++) {
+    for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
   }
+
   rotate () {
-    let w = this.width;
-    let h = this.height;
-    this.height = w;
-    this.width = h;
+    this.width = [this.height, this.height = this.width][0];
   }
+
   double () {
-    this.height = this.height * 2;
-    this.width = this.width * 2;
+    this.width *= 2;
+    this.height *= 2;
   }
 };
