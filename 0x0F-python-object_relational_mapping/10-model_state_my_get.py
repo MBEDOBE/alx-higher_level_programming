@@ -1,33 +1,24 @@
 #!/usr/bin/python3
-"""List all State objects containing argument from db"""
-import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-from model_state import Base, State
+"""
+script that prints the state obj with the name
+passed as arg from the db
+"""
 
-
-def list_arg_state_obj():
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-
-    session = Session(engine)
-
-    rows = session.query(State).all()
-
-    res = ""
-
-    for i in rows:
-        if sys.argv[4] in i.__dict__['name']:
-            res = i.__dict__['id']
-
-    if res != "":
-        print(res)
-    else:
-        print("Not Found")
-
-    session.close()
 
 if __name__ == "__main__":
-    list_arg_state_obj()
+    from sys import argv
+    from model_state import State, Base
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    session = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
+    st = session().query(State).filter(State.name == argv[4]).all()
+    if st:
+        for stat in st:
+            if stat.name == argv[4]:
+                print("{}".format(stat.id))
+    else:
+        print("Not found")
+    session().close()
