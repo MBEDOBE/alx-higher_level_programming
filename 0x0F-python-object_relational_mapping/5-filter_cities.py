@@ -1,41 +1,24 @@
 #!/usr/bin/python3
-"""Displays all cities of arguments state"""
-import MySQLdb
-import sys
+"""
+Script that takes in name of state as argument and list
+all cities of that state
+"""
 
-
-def list_cities():
-    """Takes arguments argv to list from database
-    Only lists with states that matches name argument
-    Arguments:
-        argv[1]: mysql username
-        argv[2]: mysql password
-        argv[3]: database name
-    """
-    if len(sys.argv) == 5:
-        db = MySQLdb.connect(host="localhost",
-                             port=3306,
-                             user=sys.argv[1],
-                             passwd=sys.argv[2],
-                             db=sys.argv[3])
-
-        cur = db.cursor()
-
-        cur.execute("SELECT cities.name FROM cities\
-                    JOIN states ON cities.state_id = states.id\
-                    AND states.name = '{:s}'\
-                    ORDER BY cities.id ASC".format(sys.argv[4]))
-
-        rows = cur.fetchall()
-
-        res = []
-        for i in rows:
-            res.append(i[0])
-
-        print(", ".join(res))
-
-        cur.close()
-        db.close()
 
 if __name__ == "__main__":
-    list_cities()
+    from sys import argv
+    import MySQLdb
+    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
+    cur = db.cursor()
+    check = (argv[4], )
+    cur.execute("SELECT * FROM cities JOIN states\
+    ON cities.state_id = states.id WHERE states.name = %s\
+    ORDER BY cities.id ASC", check)
+    lst = cur.fetchall()
+    cities = []
+    for r in lst:
+        if r[4] == check[0]:
+            cities.append(r[2])
+    print(', '.join(cities))
+    cur.close()
+    db.close()
