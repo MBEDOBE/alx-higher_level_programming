@@ -1,25 +1,21 @@
 #!/usr/bin/python3
-"""Updates into State obj from db"""
-import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-from model_state import Base, State
+"""
+Script that changes the name of a State obj from the db
+takes 3 args
+"""
 
-
-def update_to_state_obj():
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-
-    session = Session(engine)
-
-    to_change = session.query(State).filter(State.id == 2).first()
-
-    to_change.name = 'New Mexico'
-    session.commit()
-
-    session.close()
 
 if __name__ == "__main__":
-    update_to_state_obj()
+    from sys import argv
+    from model_state import State, Base
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    Base.metadata.create_all(engine)
+    st = session.query(State).filter_by(id=2).first()
+    st.name = "New Mexico"
+    session.commit()
+    session.close()
