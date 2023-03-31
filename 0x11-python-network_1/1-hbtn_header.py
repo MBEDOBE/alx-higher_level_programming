@@ -5,9 +5,10 @@ displays the value of X-Request-Id variable
 """
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import sys
     import urllib.request
-    with urllib.request.urlopen(sys.argv[1]) as reply:
-        url_res=reply.info()
+    url = sys.argv[1]
+    with urllib.request.urlopen(url) as response:
+        url_res = response.info()
         print(url_res['X-Request-Id'])
