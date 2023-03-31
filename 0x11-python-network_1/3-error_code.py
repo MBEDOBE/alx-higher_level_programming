@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-import urllib.request
-import urllib.parse
-from urllib.error import URLError, HTTPError
-from sys import argv
 """
 script that takes in url and sends a request to url
 displays body of response
 """
 
-
 if __name__ == "__main__":
-    rep = urllib.request.Request(argv[1])
+    import urllib.request
+    import urllib.error
+    import sys
+
+    url = urllib.request.Request(sys.argv[1])
     try:
-        with urllib.request.urlopen(rep) as reply:
-            print(reply.read().decode(encoding="utf-8"))
-    except URLError as err:
+        with urllib.request.urlopen(url) as response:
+            url_res = response.read()
+            print(url_res.decode('utf-8'))
+
+    except urllib.error.HTTPError as err:
         print("Error code: {}".format(err.code))
