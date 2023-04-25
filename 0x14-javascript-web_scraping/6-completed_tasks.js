@@ -1,7 +1,7 @@
 #!/usr/bin/node
-const fd = require('fd');
+const request = require('request');
 
-fd.get(process.argv[2], function (err, response, body) {
+request.get(process.argv[2], function (err, response, body) {
   if (err) throw err;
   if (response.statusCode === 200) {
     let done = {};
